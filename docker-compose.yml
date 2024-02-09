@@ -1,0 +1,10 @@
+version: "3.2"
+services:
+  webserver:
+    container_name: projeto-pedidos
+    build: ./
+    restart: always
+    ports:
+      - "8080:80"
+    volumes:
+      - ./:/var/www/html
