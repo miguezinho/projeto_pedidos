@@ -3,9 +3,11 @@ services:
   webserver:
     container_name: projeto-pedidos
     build: ./
-    restart: always
+    # restart: always
     ports:
       - "8080:80"
+      - "5173:5173"
     volumes:
       - /var/www/html/vendor
+      - /var/www/html/node_modules
       - ./:/var/www/html

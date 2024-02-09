@@ -13,7 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    dd(DB::connection()->getPdo());
-    // return view('welcome');
-});
+
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Auth::routes();
+
+Route::resource('clientes', App\Http\Controllers\ClientesController::class);
+Route::resource('pedidos', App\Http\Controllers\PedidosController::class);

@@ -7,6 +7,13 @@ RUN a2enmod rewrite
 RUN service apache2 restart
 
 RUN apt-get update && apt-get install -y \
+    software-properties-common \
+    npm
+RUN npm install npm@latest -g && \
+    npm install n -g && \
+    n latest
+
+RUN apt-get update && apt-get install -y \
     zlib1g-dev \
     libzip-dev
 
@@ -16,8 +23,9 @@ RUN docker-php-ext-install zip
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
 WORKDIR /var/www/html
+COPY . ./
 
 ENV COMPOSER_ALLOW_SUPERUSER=1
-COPY . ./
 RUN composer install 
-RUN php artisan key:generate
+
+RUN npm install
