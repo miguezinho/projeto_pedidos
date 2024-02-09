@@ -9,7 +9,7 @@ CREATE TABLE clientes (
 
 CREATE TABLE pedido_status (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    descricao VARCHAR(255) NOT NULL,
+    descricao VARCHAR(255) NOT NULL
 );
 
 CREATE TABLE pedidos (

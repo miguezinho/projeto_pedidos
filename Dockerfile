@@ -6,9 +6,18 @@ RUN sed -ri -e 's!/var/www/html!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/apache2.
 RUN a2enmod rewrite
 RUN service apache2 restart
 
-RUN apt-get update -y
+RUN apt-get update && apt-get install -y \
+    zlib1g-dev \
+    libzip-dev
+
 RUN docker-php-ext-install mysqli pdo pdo_mysql
+RUN docker-php-ext-install zip
 
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
-CMD bash -c "composer install & php artisan key:generate"
+WORKDIR /var/www/html
+
+ENV COMPOSER_ALLOW_SUPERUSER=1
+COPY . ./
+RUN composer install 
+RUN php artisan key:generate
