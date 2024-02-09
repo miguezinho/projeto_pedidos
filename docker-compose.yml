@@ -3,7 +3,6 @@ services:
   webserver:
     container_name: projeto-pedidos
     build: ./
-    # restart: always
     ports:
       - "8080:80"
       - "5173:5173"
