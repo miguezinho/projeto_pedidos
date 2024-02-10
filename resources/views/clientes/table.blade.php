@@ -2,40 +2,38 @@
     <div class="table-responsive">
         <table class="table" id="clientes-table">
             <thead>
-            <tr>
-                <th>Nome</th>
-                <th>Cpf</th>
-                <th>Data Nasc</th>
-                <th>Telefone</th>
-                <th>Ativo</th>
-                <th colspan="3">Action</th>
-            </tr>
+                <tr>
+                    <th>Nome</th>
+                    <th>Cpf</th>
+                    <th>Data Nasc</th>
+                    <th>Telefone</th>
+                    <th>Ativo</th>
+                    <th colspan="3">Ações</th>
+                </tr>
             </thead>
             <tbody>
-            @foreach($clientes as $clientes)
+                @foreach($clientes as $cliente)
                 <tr>
-                    <td>{{ $clientes->nome }}</td>
-                    <td>{{ $clientes->cpf }}</td>
-                    <td>{{ $clientes->data_nasc }}</td>
-                    <td>{{ $clientes->telefone }}</td>
-                    <td>{{ $clientes->ativo }}</td>
-                    <td  style="width: 120px">
-                        {!! Form::open(['route' => ['clientes.destroy', $clientes->id], 'method' => 'delete']) !!}
+                    <td>{{ $cliente->nome }}</td>
+                    <td>{{ $cliente->cpf }}</td>
+                    <td>{{ $cliente->data_nasc->format('d/m/Y') }}</td>
+                    <td>{{ $cliente->telefone }}</td>
+                    <td>{{ $cliente->ativo }}</td>
+                    <td style="width: 120px">
+                        {!! Form::open(['route' => ['clientes.destroy', $cliente->id], 'method' => 'delete']) !!}
                         <div class='btn-group'>
-                            <a href="{{ route('clientes.show', [$clientes->id]) }}"
-                               class='btn btn-default btn-xs'>
+                            <a href="{{ route('clientes.show', [$cliente->id]) }}" class='btn btn-default btn-xs'>
                                 <i class="far fa-eye"></i>
                             </a>
-                            <a href="{{ route('clientes.edit', [$clientes->id]) }}"
-                               class='btn btn-default btn-xs'>
+                            <a href="{{ route('clientes.edit', [$cliente->id]) }}" class='btn btn-default btn-xs'>
                                 <i class="far fa-edit"></i>
                             </a>
-                            {!! Form::button('<i class="far fa-trash-alt"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Are you sure?')"]) !!}
+                            {!! Form::button('<i class="far fa-trash-alt"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Tem certeza que deseja deletar esse cliente?')"]) !!}
                         </div>
                         {!! Form::close() !!}
                     </td>
                 </tr>
-            @endforeach
+                @endforeach
             </tbody>
         </table>
     </div>

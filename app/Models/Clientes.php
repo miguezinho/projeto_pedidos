@@ -8,6 +8,8 @@ class Clientes extends Model
 {
     public $table = 'clientes';
 
+    public $timestamps = false;
+
     public $fillable = [
         'nome',
         'cpf',

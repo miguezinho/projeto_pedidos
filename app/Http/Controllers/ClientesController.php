@@ -45,9 +45,14 @@ class ClientesController extends AppBaseController
     {
         $input = $request->all();
 
+        if ($input['data_nasc'] > date('Y-m-d')) {
+            Flash::error('A data de nascimento não pode ser futura!');
+            return redirect(route('clientes.create'));
+        }
+
         $clientes = $this->clientesRepository->create($input);
 
-        Flash::success('Clientes saved successfully.');
+        Flash::success('Cliente cadastrado com sucesso!');
 
         return redirect(route('clientes.index'));
     }
@@ -60,7 +65,7 @@ class ClientesController extends AppBaseController
         $clientes = $this->clientesRepository->find($id);
 
         if (empty($clientes)) {
-            Flash::error('Clientes not found');
+            Flash::error('Cliente não encontrado');
 
             return redirect(route('clientes.index'));
         }
@@ -76,7 +81,7 @@ class ClientesController extends AppBaseController
         $clientes = $this->clientesRepository->find($id);
 
         if (empty($clientes)) {
-            Flash::error('Clientes not found');
+            Flash::error('Cliente não encontrado');
 
             return redirect(route('clientes.index'));
         }
@@ -92,14 +97,19 @@ class ClientesController extends AppBaseController
         $clientes = $this->clientesRepository->find($id);
 
         if (empty($clientes)) {
-            Flash::error('Clientes not found');
+            Flash::error('Cliente não encontrado');
 
             return redirect(route('clientes.index'));
         }
 
+        if ($request->all()['data_nasc'] > date('Y-m-d')) {
+            Flash::error('A data de nascimento não pode ser futura!');
+            return redirect(route('clientes.edit', [$clientes->id]));
+        }
+
         $clientes = $this->clientesRepository->update($request->all(), $id);
 
-        Flash::success('Clientes updated successfully.');
+        Flash::success('Cliente editado com sucesso!');
 
         return redirect(route('clientes.index'));
     }
@@ -114,14 +124,14 @@ class ClientesController extends AppBaseController
         $clientes = $this->clientesRepository->find($id);
 
         if (empty($clientes)) {
-            Flash::error('Clientes not found');
+            Flash::error('Cliente não encontrado');
 
             return redirect(route('clientes.index'));
         }
 
         $this->clientesRepository->delete($id);
 
-        Flash::success('Clientes deleted successfully.');
+        Flash::success('Cliente deletado com sucesso!');
 
         return redirect(route('clientes.index'));
     }

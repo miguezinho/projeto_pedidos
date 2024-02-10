@@ -13,7 +13,7 @@
 <!-- Data Nasc Field -->
 <div class="col-sm-12">
     {!! Form::label('data_nasc', 'Data Nasc:') !!}
-    <p>{{ $clientes->data_nasc }}</p>
+    <p>{{ $clientes->data_nasc->format("d/m/Y") }}</p>
 </div>
 
 <!-- Telefone Field -->
@@ -25,6 +25,6 @@
 <!-- Ativo Field -->
 <div class="col-sm-12">
     {!! Form::label('ativo', 'Ativo:') !!}
-    <p>{{ $clientes->ativo }}</p>
+    <p>{{ $clientes->ativo === 1 ? "Sim" : "Não" }}</p>
 </div>
 
