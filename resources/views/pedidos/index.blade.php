@@ -10,7 +10,13 @@
                 <div class="col-sm-6">
                     <a class="btn btn-primary float-right"
                        href="{{ route('pedidos.create') }}">
-                        Add New
+                       <i class="nav-icon fas fa-cart-plus"></i>
+                        Novo pedido
+                    </a>
+                    <a class="btn btn-default float-right mr-4"
+                       href="{{ route('pedidos.create') }}">
+                       <i class="nav-icon fas fa-file-csv"></i>
+                        Exportar CSV
                     </a>
                 </div>
             </div>

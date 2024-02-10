@@ -8,6 +8,8 @@ class Pedidos extends Model
 {
     public $table = 'pedidos';
 
+    public $timestamps = false;
+
     public $fillable = [
         'produto',
         'valor',
@@ -35,7 +37,7 @@ class Pedidos extends Model
 
     public function cliente(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {
-        return $this->belongsTo(\App\Models\Cliente::class, 'cliente_id');
+        return $this->belongsTo(\App\Models\Clientes::class, 'cliente_id');
     }
 
     public function pedidoStatus(): \Illuminate\Database\Eloquent\Relations\BelongsTo
@@ -45,6 +47,6 @@ class Pedidos extends Model
 
     public function pedidosImagens(): \Illuminate\Database\Eloquent\Relations\HasMany
     {
-        return $this->hasMany(\App\Models\PedidosImagen::class, 'pedido_id');
+        return $this->hasMany(\App\Models\PedidosImagens::class, 'pedido_id');
     }
 }

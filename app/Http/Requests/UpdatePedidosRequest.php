@@ -25,7 +25,24 @@ class UpdatePedidosRequest extends FormRequest
     public function rules()
     {
         $rules = Pedidos::$rules;
-        
+
         return $rules;
+    }
+
+    /**
+     * Get the validation messages that apply to the request.
+     *
+     * @return array
+     */
+    public function messages()
+    {
+        return [
+            'cliente_id.required' => "Preencha o cliente!",
+            'produto.required' => "Preencha o produto!",
+            'valor.required' => "Preencha o valor!",
+            'data.required' => "Preencha a data!",
+            'status_id.required' => "Preencha o status!",
+            'ativo.required' => "Preencha se o pedido está ativo!",
+        ];
     }
 }

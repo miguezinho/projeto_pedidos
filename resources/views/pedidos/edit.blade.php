@@ -6,7 +6,7 @@
             <div class="row mb-2">
                 <div class="col-sm-12">
                     <h1>
-                        Edit Pedidos
+                        Editar Pedido
                     </h1>
                 </div>
             </div>
@@ -28,8 +28,8 @@
             </div>
 
             <div class="card-footer">
-                {!! Form::submit('Save', ['class' => 'btn btn-primary']) !!}
-                <a href="{{ route('pedidos.index') }}" class="btn btn-default"> Cancel </a>
+                {!! Form::submit('Salvar', ['class' => 'btn btn-primary']) !!}
+                <a href="{{ route('pedidos.index') }}" class="btn btn-default"> Cancelar </a>
             </div>
 
             {!! Form::close() !!}

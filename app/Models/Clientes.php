@@ -36,6 +36,6 @@ class Clientes extends Model
 
     public function pedidos(): \Illuminate\Database\Eloquent\Relations\HasMany
     {
-        return $this->hasMany(\App\Models\Pedido::class, 'cliente_id');
+        return $this->hasMany(\App\Models\Pedidos::class, 'cliente_id');
     }
 }

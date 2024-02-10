@@ -25,6 +25,6 @@
 <!-- Ativo Field -->
 <div class="col-sm-12">
     {!! Form::label('ativo', 'Ativo:') !!}
-    <p>{{ $clientes->ativo === 1 ? "Sim" : "Não" }}</p>
+    <p>{{ $clientes->ativo == 1 ? "Sim" : "Não" }}</p>
 </div>
 

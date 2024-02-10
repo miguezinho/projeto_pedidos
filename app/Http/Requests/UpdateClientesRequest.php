@@ -25,7 +25,23 @@ class UpdateClientesRequest extends FormRequest
     public function rules()
     {
         $rules = Clientes::$rules;
-        
+
         return $rules;
     }
+
+    /**
+     * Get the validation messages that apply to the request.
+     *
+     * @return array
+     */
+    public function messages()
+    {
+        return [
+            'nome.required' => "Preencha o nome!",
+            'cpf.required' => "Preencha o CPF!",
+            'data_nasc.required' => "Preencha a data de nascimento!",
+            'ativo.required' => "Preencha se o cliente está ativo!",
+        ];
+    }
+
 }

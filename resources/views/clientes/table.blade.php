@@ -18,7 +18,7 @@
                     <td>{{ $cliente->cpf }}</td>
                     <td>{{ $cliente->data_nasc->format('d/m/Y') }}</td>
                     <td>{{ $cliente->telefone }}</td>
-                    <td>{{ $cliente->ativo }}</td>
+                    <td>{{ $cliente->ativo == 1 ? "Sim" : "Não"}}</td>
                     <td style="width: 120px">
                         {!! Form::open(['route' => ['clientes.destroy', $cliente->id], 'method' => 'delete']) !!}
                         <div class='btn-group'>

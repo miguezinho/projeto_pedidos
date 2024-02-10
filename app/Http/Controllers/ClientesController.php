@@ -122,6 +122,12 @@ class ClientesController extends AppBaseController
     public function destroy($id)
     {
         $clientes = $this->clientesRepository->find($id);
+        
+        if (!empty($clientes->Pedidos) && count($clientes->Pedidos) > 0) {
+            Flash::error('Não foi possível excluir este cliente pois o mesmo já possui pedidos cadastrados!');
+
+            return redirect(route('clientes.index'));
+        }
 
         if (empty($clientes)) {
             Flash::error('Cliente não encontrado');
