@@ -7,7 +7,7 @@ Projeto de gerenciamento de cadastros de clientes e pedidos
 > Para desenvolvimento desse projeto utilizei como principal ferramenta o framework Laravel 10 rodando na versão 8.3 do PHP.
 > Utilizei banco de dados MYSQL onde hospedei o mesmo na AWS RDS. Caso queiram conferir o DDL das tabelas está na raiz do projeto no arquivo **ddl_projeto_pedidos.sql**.
 > Para o Front-end utilizei o NPM para instalar pacotes como: AdminLTE, Vite, Jquery, etc.
-> Para facilitar os testes utilizei o docker onde instalo dentro de um container todas as dependências que citei acima, além dos módulos do PHP, configurações do Apache,etc. Segue mais abaixo o passo a passo.
+> Para facilitar os testes utilizei o docker onde instalo dentro de um container todas as dependências que citei acima, além dos módulos do PHP, configurações do Apache, etc. Segue mais abaixo o passo a passo.
 
 ## Subindo o projeto
 

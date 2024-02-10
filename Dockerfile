@@ -13,6 +13,10 @@ RUN apt-get update && apt-get install -y \
     libzip-dev \
     && docker-php-ext-install mysqli pdo pdo_mysql \
     && docker-php-ext-install zip
+RUN apt-get update && \
+    apt-get install -y zlib1g-dev libpng-dev libjpeg-dev
+RUN docker-php-ext-configure gd --with-jpeg && \
+    docker-php-ext-install gd
 
 # Definindo diretório de trabalho e cópia dos códigos fontes para a imagem
 WORKDIR /var/www/html
