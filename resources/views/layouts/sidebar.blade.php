@@ -3,7 +3,7 @@
         <img src="https://w7.pngwing.com/pngs/49/117/png-transparent-computer-icons-order-picking-text-task-symbol.png"
              alt="AdminLTE Logo"
              class="brand-image img-circle elevation-3">
-        <span class="brand-text font-weight-light">Início</span>
+        <span class="brand-text font-weight-light">Home</span>
     </a>
 
     <div class="sidebar">

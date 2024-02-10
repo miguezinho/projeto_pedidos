@@ -20,3 +20,4 @@ Auth::routes();
 
 Route::resource('clientes', App\Http\Controllers\ClientesController::class);
 Route::resource('pedidos', App\Http\Controllers\PedidosController::class);
+Route::resource('pedidos-imagens', App\Http\Controllers\PedidosImagensController::class);

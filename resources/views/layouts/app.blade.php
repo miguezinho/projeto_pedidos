@@ -13,7 +13,7 @@
                 </ul>
 
                 <ul class="navbar-nav ml-auto">
-                  
+
                 </ul>
             </nav>
 
@@ -35,4 +35,10 @@
             </footer>
         </div>
     </body>
+    @prepend('page_scripts')
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    @endprepend
 </x-laravel-ui-adminlte::adminlte-layout>
